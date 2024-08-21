@@ -1,3 +1,4 @@
+/* 
 const data = [5,2,7,9,2];
 
 let max = data[0];
@@ -12,5 +13,20 @@ for ( let i=1; i<data.length; i++) {
 }
 
 console.log("최댓값 : " + max);
+ */
+
+
+
+
+const data = [4,8,6,4,2];
+let max = data[0];
+
+for ( let i=1; i<data.length; i++ ) {
+    if ( max < data[i] ) {
+        max = data[i];
+    }
+}
+console.log(max);
+
 
 

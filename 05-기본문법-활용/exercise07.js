@@ -1,3 +1,4 @@
+/* 
 const number=1;
 
 for ( let i=2; i<10; i++ ) {
@@ -19,6 +20,7 @@ for ( let i=2; i<10; i++ ) {
     }    
     console.groupEnd();
 } 
+ */
 
 /*
 for ( let i=2; i<10; i+=2 ) {
@@ -34,7 +36,7 @@ for ( let i=2; i<10; i+=2 ) {
     
 } */
 
-
+/* 
 const number1 = 1;
 
 let start = number1==2 ? 2 : 3;
@@ -51,4 +53,18 @@ for ( let i=4-number2; i<10; i+=2 ) {
     for ( let j=1; j<10; j++ ) {
         console.log("%d x %d = %d", i, j, i*j);
     }
+}
+ */
+
+
+
+const number=1;
+let start = number==1 ? 3 : 2;
+
+for ( let i=start; i<10; i+=2 ) {
+    console.group(i + "단");
+    for ( let j=1; j<10; j++ ) {
+        console.log("%d x %d = %d", i, j, i*j);
+    }
+    console.groupEnd();
 }
