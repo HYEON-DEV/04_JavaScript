@@ -1,7 +1,7 @@
 
 const names = [ "재석", "민영", "종민", "광수", "승기", "새정" ];
 const points = [ 82, 91, 54, 62, 88, 90 ];
-console.log("이름 : " + names);
+console.log("이름 : " + names);    // console.log(`이름 : ${names}`);
 console.log("점수 : " + points);
 
 let n = names.length;

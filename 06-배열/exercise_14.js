@@ -16,10 +16,11 @@ for ( let i=0; i<yh.length; i++ ) {
 //console.log(arr);
 
 
-console.log("가져올 수 있는 카드의 수 : %d장", cnt );
+console.log(`가져올 수 있는 카드의 수 : ${cnt}장`);
 
 for ( let i=0; i<arr.length; i++ ) {
     if ( arr[i] != undefined ) {
-        console.log("%d번째 >> " + arr[i], i);
+        console.log(`${i}번째 >> ${arr[i]}`);
     }
 } 
+

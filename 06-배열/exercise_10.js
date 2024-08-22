@@ -1,5 +1,4 @@
 
-
 const student = [ "둘리", "도우너", "또치", "희동" ];
 const grade = [ 
     [ 78, 89, 96 ], 
@@ -8,7 +7,6 @@ const grade = [
     [ 100, 99, 98 ]
 ];
 
-const arr = new Array(4);
 let total = 0;
 
 for ( let i=0; i<grade.length; i++ ) {
@@ -24,5 +22,6 @@ for ( let i=0; i<grade.length; i++ ) {
 }
 let avg = total/student.length;
 
-console.log("반 평균 : " + avg);
+//console.log("반 평균 : " + avg);
+console.log(`반 평균 : ${avg}`);
 

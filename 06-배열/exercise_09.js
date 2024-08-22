@@ -16,7 +16,8 @@ for ( let i=0; i<grade.length; i++ ) {
     }
 
     let avg = sum / grade[i].length;
-    console.log("%s 총점: %d점, 평균: %d점", student[i], sum, avg);
+    //console.log("%s 총점: %d점, 평균: %d점", student[i], sum, avg);
+    console.log(`${student[i]} 총점: ${sum}점, 평균: ${avg}점`); 
 }
 
 
