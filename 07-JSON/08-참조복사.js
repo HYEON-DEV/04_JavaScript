@@ -54,7 +54,7 @@ console.log(a2);
 
 
 //  배열객체가 갖는 메서드를 활용한 깊은 복사 방법
-//  const 새로운 면수 = 원본배열.slice();
+//  const 새로운 변수 = 원본배열.slice();
 const a3 = a1.slice();
 console.log(a1);
 console.log(a3);
@@ -86,11 +86,14 @@ addr.gu = '운정';
 
 console.log(addr);
 console.log(copy);
-
+ 
 const copy2 = {};
 Object.assign(copy2, addr);
 console.log(addr);
 console.log(copy);
 console.log(copy2);
 
+copy2.gu = '강남';
 
+console.log(addr);
+console.log(copy2);
