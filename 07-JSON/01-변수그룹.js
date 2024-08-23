@@ -1,12 +1,12 @@
 
 // 변수들의 그룹으로서의 JSON 정의 
 const student = {
-    studno: 201611021,
+    studno: 12345678,
     grade: 1,
-    name: '이승현',
-    phoneno: '010-7303-9801'
+    name: 'HYEON',
+    phoneno: '010-1234-5678'
 };
-
+/
 
 // 데이터에 접근하는 기본적인 방법은   객체이름.하위정보
 // 90%이상 이 방식이 사용됨
@@ -32,7 +32,7 @@ const keyName = 'phoneno';
 console.log(student[keyName]);
 
 
-
+ 
 
 // json 데이터 탐색하기 (1)
 
@@ -55,3 +55,4 @@ for ( const k in student ) {
     console.groupEnd();
 }
 
+ 
