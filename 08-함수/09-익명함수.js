@@ -3,10 +3,11 @@
 
 const say = function(msg) {
     console.log("say hello ("+msg+")");
-};
+};      //  익명함수는 정의 형태가 대입형태이기 때문에 블록뒤에 세미콜론!!!
 
 //  함수가 대입된 변수는 그 자체가 함수 역할을 한다
 say('hyeon');
+
 
 
 //
