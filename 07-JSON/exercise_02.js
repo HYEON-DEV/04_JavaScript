@@ -34,3 +34,4 @@ for ( let i=0; i<keys.length; i++ ) {
 }
 let avg = sum / keys.length;
 console.log(`모든 학생의 수학 총점은 ${sum}점 이고 평균은 ${avg}점 입니다.`);
+
