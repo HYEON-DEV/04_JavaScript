@@ -45,6 +45,39 @@ mypromise.then( ({msg,a,b,c}) => {
     console.log('fin : ');
 });
 
- */
+
 
 //  비동기 처리로 실행되는 함수에 대한 결과 처리를 별도의 로직으로 실행할 수 있는 기법
+ */
+
+
+
+function random( n1, n2 ) {
+    return parseInt( Math.random() * (n2-n1+1) ) + n1;
+}
+
+function getLuckyResult () {
+    return new Promise ( function ( resolve, reject ) {
+        setTimeout( () => {
+            console.log('추첨 결과는...?');
+
+            const lucky = random(1,9);
+
+            if ( lucky%2 == 0 ) {
+                resolve( { msg: lucky+'-->당첨', a: 1, b: 2, c: 3 } );
+            } else {
+                reject( { msg: lucky+'-->꽝', d: -1, e: -2 } );
+            }
+        }, 1000 );
+    } );
+}
+
+const mypromise = getLuckyResult();
+mypromise.then( ( {msg,a,b,c} ) => {
+    console.log(`${msg}, a=${a}, b=${b}, c=${c}`);
+} ).catch( ( {msg,d,e} ) => {
+    console.error(`${msg}, d=${d}, e=${e}`);
+} ).finally( () => {
+    console.log('FIN');
+} );
+
