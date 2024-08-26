@@ -20,10 +20,18 @@ printStar(5);
 ****
 *****
 */
-/* 
-function print (x) {
-    for ( let i=0; i<x+1; i++) {
 
+
+function printStar (max, current=1) {
+    
+    if ( current > max) {
+        return;
+    } else {
+        let star = '';
+        
+        for ( let j=0; j<current; j++ ) {
+            star += '*';      
+        }
     }
+
 }
- */

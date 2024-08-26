@@ -21,3 +21,6 @@ result.AB = ab;
 result.O = o;
 
 console.log(result);
+
+
+

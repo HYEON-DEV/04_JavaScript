@@ -29,3 +29,5 @@ const student = {
 for ( const k in student ) {
     console.log(`${k}의 총점은 ${student[k].sum()}점 이고 평균은 ${student[k].avg()}점 입니다.`);
 }
+
+
