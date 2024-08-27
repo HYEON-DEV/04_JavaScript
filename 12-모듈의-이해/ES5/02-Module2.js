@@ -13,4 +13,3 @@ module.exports.home = {
         console.log(this.postcode + ' ' + this.address);
     }
 };
-
