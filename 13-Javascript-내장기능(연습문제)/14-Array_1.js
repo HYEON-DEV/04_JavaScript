@@ -2,26 +2,26 @@
 const data = [ 10, 20, 30, 40, 50 ];
 
 /* -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-//  배열의 맨 끝에 요소 추가
+//  배열의 맨 끝에 요소 추가    push
 data.push(60,70);
 console.log(data);
 
-//  마지막 요소 리턴하고 제거
+//  마지막 요소 리턴하고 제거   pop
 const k = data.pop();
 console.log(k);
 console.log(data);
 
-//  맨 앞 요소 리턴하고 제거
+//  맨 앞 요소 리턴하고 제거    shift
 const x = data.shift();
 console.log(x);
 console.log(data);
 
-//  맨 앞 요소 추가
+//  맨 앞 요소 추가             unshift
 data.unshift(0, 10);
 console.log(data);
 /* -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 
-//  2번째 위치부터 3개를 잘라서 반환하고 원본에서는 제거 *****
+//  2번째 위치부터 3개를 잘라서 반환하고 원본에서는 제거    splice
 const z = data.splice(2,3);
 console.log(z);
 console.log(data);
@@ -37,7 +37,7 @@ data.splice(3,0,'d','e');  //  ->  3위치 직전에 삽입된다  [0][1][2]^[3]
 console.log(data);
 /* -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 
-//  a에 b,c 결합한 새로운 배열 반환
+//  a에 b,c 결합한 새로운 배열 반환     concat
 const a = [1,2];
 const b = [3,4,5];
 const c = [6,7,8,9];
@@ -45,7 +45,7 @@ const d = a.concat(b,c);
 console.log(d);
 /* -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 
-//  배열에서 원하는 원소가 있는지
+//  배열에서 원하는 원소가 있는지       indexOf     includes
 let arr1 = [1,0,false,2,5,8];
 
 console.log( arr1.indexOf(0) );         //  1
