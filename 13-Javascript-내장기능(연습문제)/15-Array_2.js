@@ -113,6 +113,7 @@ for ( let i=0; i<arr8.length; i++ ) {
 }
 console.log(d1);
 
+
 //  2)  forEach -- -- -- -- -- -- -- -- -- -- 
 const arr9 = [5,12,8,131,44];
 const d2 = [];
@@ -122,4 +123,85 @@ arr9.forEach( (v,i) => {
     }    
 } );
 console.log(d2);
+
+
+//  3)  filter -- -- -- -- -- -- -- -- -- -- 
+const arr10 = [5,12,8,131,44];
+const d3 = arr10.filter( function( v, i ){      //  콜백함수의 파라미터 v,i,arr 로 3개인데 (arr: 전체배열) arr 쓴걸 본적이 없음, 보통 생략하신다
+    if ( v%2 == 0 ) {
+        return true;        //  true 리턴해도 배열의 모든 원소 탐색 전까지는 종료되지X
+    } else {
+        return false;       //  false 리턴 -> v는 d3에 저장되지 않는다
+    }
+} );
+console.log(d3);
+
+//  -->  화살표함수로 코드 줄이기  <--
+const arr11 = [5,12,8,131,44];
+const d4 = arr11.filter( (v,i) => v%2 == 0 );
+console.log(d4);
+
+
+
+//  배열 정렬
+//
+//  1)  sort  정렬
+//  퀵정렬 알고리즘 사용해 배열 자체를 정렬
+//  모든 원소를 문자열로 취급해서 글자 정렬기준이 된다
+
+const arr12 = [2,1,15];
+//console.log( arr12.sort() );
+
+//  sort 메서드도 정렬조건을 콜백함수로 처리한다
+arr12.sort( function( a,b ){        //  원소들이 파라미터로 전달된다
+    console.log(`a=${a}, b=${b}`);
+    if ( a > b ) {
+        return 1;                   //  리턴값이 양수  =>  a > b
+    } else {
+        return -1;                  //  리턴값이 음수  =>  a < b
+    }
+} );
+console.log(arr12);
+
+
+//  2)  역순배치  reverse
+let arr13 = [1,2,3,4,5];
+console.log( arr13.reverse() );
+
+
+//  3)  reduce    배열원소 합계 구하는데 좋다
+//  accumlator 초기값 정하기
+//      -- reduce의 두번째 파라미터 없을 때 --
+let arr14 = [1,2,3,4,5];
+/* 
+const result3 = arr14.reduce( (acc, cur, i) => {    //  i에는 항상 cur의 인덱스가 들어온다 
+    console.log(`acc=${acc}, cur=${cur}, i=${i}`);  //  처음에는 acc에 항상 첫번째원소가 들어온다
+    return acc+cur;
+} );
+console.log(`result3 = ${result3}`);
+ */
+//      -- reduce의 두번째 파라미터 있을 때 --
+const result4 = arr14.reduce( (acc,cur,i)=>{
+    console.log(`acc=${acc}, cur=${cur}, i=${i}`);
+    return acc+cur;  
+}, 0 );
+console.log(`result4 = ${result4}`);
+
+
+//  응용
+const covid19 = [
+    {date: '0125', active: 426},
+    {date: '0126', active: 343},
+    {date: '0127', active: 547},
+    {date: '0128', active: 490},
+    {date: '0129', active: 460},
+    {date: '0130', active: 443},
+    {date: '0131', active: 338},
+    {date: '0201', active: 299}
+];
+//  전체 확진자 수 구하기
+//  객체 탐색할 때는 acc의 초기값 설정하고,  0번째 원소부터 currentValue로 받아와야 한다    
+const total = covid19.reduce( (acc,cur) => acc+cur.active, 0 );
+console.log(`전체 확진자 수 : ${total}`);
+console.log(`평균 확진자 수 : ${total/covid19.length}`);
 

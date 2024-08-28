@@ -4,7 +4,7 @@
 
 var max = Math.max(100, 456, 123, 1000, 789);
 var min = Math.min(100, 456, 123, 1000, 789);
-console.log(`최대값 : ${max}`);
+console.log(`최댓값 : ${max}`);
 console.log(`최솟값 : ${min}`);
 
 /* 

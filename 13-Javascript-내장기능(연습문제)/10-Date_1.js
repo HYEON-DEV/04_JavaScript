@@ -8,7 +8,7 @@ const days = [ '일', '월', '화', '수', '목', '금', '토' ];
 const date1 = new Date();
 //console.log(date1);
 
-const yy = date1.getFullYear();
+const yy = date1.getFullYear();     //console.log(yy);
 const mm = date1.getMonth() + 1;
 const dd = date1.getDate();
 const i = date1.getDay();
