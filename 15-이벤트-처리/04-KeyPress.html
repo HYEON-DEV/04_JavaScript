@@ -34,6 +34,7 @@
 
     <script>
         let press=0;
+        //  화면에 출력되는 키가 눌러질 경우 (한글동작X)
         document.querySelector("#listener").addEventListener( "keypress", e => {
             press++;
             document.querySelector("#result1").innerHTML = press;

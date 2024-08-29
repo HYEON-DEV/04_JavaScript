@@ -6,26 +6,39 @@
     <title>Document</title>
 
     <style>
-        #box {
-            border: 2px solid black;
-            background: lightgrey;
-            color: blue;
-            width: 200px;
-            text-align: center;
-            font-size: 25px;
-            padding: 10px 0;
-            font-weight: 500;
+        .btn {
+            border: 1px solid black;
+            padding: 5px 10px;
+            font-size: 16px;
+            transition: all 0.1s;
         }
+
+        .btn:active {
+            transform: translateY(1px) scale(0.95, 0.95);
+        }
+
+        .on {
+            background-color: #ff0;
+            color: #f00;
+        }
+
+        .off {
+            background-color: #d5d5d5;
+            color: blue;
+        }        
     </style>
 </head>
 <body>
-    <div id="box" class="off"> 푸시알림 수신 </div>
+    <button id="pushBtn" class="btn off"> 푸시알림 수신 </button>
 
     <script>
-        const box = document.querySelector('#box');
-        box.addEventListener( 'click', e => {
-            document.getElementBy
+        const pushBtn = document.querySelector('#pushBtn');
+
+        pushBtn.addEventListener( 'click', e => {
+            e.currentTarget.classList.toggle('on');
+            e.currentTarget.classList.toggle('off');
         } );
     </script>
 </body>
 </html>
+

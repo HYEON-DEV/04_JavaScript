@@ -25,7 +25,10 @@
         const eventBox = document.querySelector('#listener');
 
         eventBox.addEventListener( 'mousedown', e => e.currentTarget.innerHTML = 'Mouse Down' );
-        
+        eventBox.addEventListener( 'mouseup', e => e.currentTarget.innerHTML = 'Mouse Up' );
+
+        eventBox.addEventListener( 'mouseout', e => e.currentTarget.innerHTML = 'Mouse Out' );
+        eventBox.addEventListener( 'mouseover', e => e.currentTarget.innerHTML = 'Mouse Over' );
     </script>
 </body>
 </html>
