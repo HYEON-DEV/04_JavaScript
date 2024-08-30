@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myform">
+        <div>
+            <label for="subject"> 과목 </label>
+            <select name="subject" id="subject">
+                <option value=""> --- 선택하세요 --- </option>
+                <option value="html"> HTML </option>
+                <option value="css"> CSS </option>
+                <option value="javascript"> JavaScript </option>
+            </select>
+        </div>
+        <button type="submit"> 입력값 확인 </button>
+        <hr />
+
+        <div id="result"></div>  <!--선택결과 표시할 div-->
+    </form>
+
+    <script type="text/javascript">     
+    //  addEventListener('submit', cb);
+    //  <select> 태그로 표현되는 드롭다운 요소는 그 자체가 배열 / <option>태그들이 배열의 요소
+    //  selectedIndex; 선택된 요소의 배열의 인덱스
+    //  dropdown[choice_index].value -> 선택된 요소의 value 값
+
+        document.querySelector('#myform').addEventListener( 'submit', e => {
+            e.preventDefault();
+
+            const dropdown = document.querySelector('#subject');
+
+            const choose = dropdown.selectedIndex;
+            //console.log(choose);
+
+            if (choose == 0) {
+                alert('선택된 항목이 없습니다');
+                return;
+            }
+
+            const value = dropdown[choose].value;
+            document.querySelector('#result').innerHTML = value;
+        } );
+    </script>
+</body>
+</html>
