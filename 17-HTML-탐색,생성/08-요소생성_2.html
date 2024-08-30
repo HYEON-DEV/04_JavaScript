@@ -29,7 +29,7 @@
                     background-color: #f0f2;
                 }
             }
-        }
+        } 
     </style>
 </head>
 <body>
@@ -42,39 +42,40 @@
     <ul id="list"></ul>
 
     <script>
-        //  동적으로 JS가 생성한 HTML 요소가 추가될 객체
-        const list = document.querySelector('#list');
         const comment = document.querySelector('#comment');
+        const list = document.querySelector('#list');
         
-        //  동적으로 <li>태그 element객체를 생성해 리턴하는 함수        .createElement(요소이름);
         const getItem = clsName => {
+            // <li> 만들기
             const li = document.createElement('li');
-            li.classList.add('item',clsName);
+            // 클래스 추가
+            li.classList.add('item', clsName);
+            // <li>에 input태그내용 넣기
             li.innerHTML = comment.value;
-            
+            // <li> 클릭이벤트
             li.addEventListener( 'click', e => {
-                e.currentTarget.remove();                           // .remove();
+                e.currentTarget.remove();
             } );
 
             return li;
-        };
-        
-        //  자식요소 추가 버튼 클릭 이벤트      태그.appendChild();
+        }
+
+        // 버튼 클릭 이벤트
         document.querySelector('#appendChild').addEventListener( 'click', e => {
             const li = getItem('blue');
-            //  <ul>에 JS가 코딩한 <li>를 자식요소로 추가 ( 기존 항목 유지하고 맨 뒤에 추가 )
+            //   <ul>에 <li> 추가 - 기존 항목 뒤에
             list.appendChild(li);
         } );
 
+        //   기준노드에 삽입
         document.querySelector('#insertBefore1').addEventListener( 'click', e => {
-            //  부모노드.insertBefore(삽입할노드,기준점노드);
-            //  -> 기준점이 null -> appendChild와 동일하게 동작
-            list.insertBefore( getItem('orange'), null );       // 태그.insertBefore( 삽입할노드, 기준점노드 );  null-> appendChild와 같다
+            list.insertBefore(getItem('orange'),null);
         } );
-
+        //   기준점 직전에 추가
         document.querySelector('#insertBefore2').addEventListener( 'click', e => {
-            list.insertBefore( getItem('pink'), document.querySelector('li:first-child') );
+            list.insertBefore(getItem('pink'),document.querySelector('li:first-child'));
         } );
+        
     </script>
 </body>
 </html>
