@@ -22,29 +22,36 @@
     </ul>
 
     <script>
-        //  부모 요소 찾기      parentElement
-        document.querySelectorAll('.find-parent').forEach( (v,i) => {
-            v.addEventListener( 'click', e => {
-                e.preventDefault();
-                const current = e.currentTarget;
-                const color = current.dataset.color;
-                const parent = current.parentElement;
-                // console.log(parent);
-                parent.style.backgroundColor = color;
-            } );
-        } );
+    /*
+    .preventDefault();
+    .dataset.___;
+    .parentElement;
+    .closest('.className');
+    */
 
-        //  조상 요소 찾기      closest
-        document.querySelectorAll('.find-parents').forEach( (v,i) => {
-            v.addEventListener( 'click', e => {
-                e.preventDefault();
-                const current = e.currentTarget;
-                const color = current.dataset.color;
-                const parents = current.closest('.list-group');
-                // console.log(parents);
-                parents.style.backgroundColor = color;
-            } );
+    //  부모 요소 찾기
+    document.querySelectorAll('.find-parent').forEach( (v,i) => {
+        v.addEventListener( 'click', e => {
+            e.preventDefault();
+            const current = e.currentTarget;
+            const color = current.dataset.color;
+            const parent = current.parentElement;
+            console.log(parent);
+            parent.style.backgroundColor = color;
         } );
+    } );
+
+    //  조상 요소 찾기      closest
+    document.querySelectorAll('.find-parents').forEach( (v,i) => {
+        v.addEventListener( 'click', e => {
+            e.preventDefault();
+            const current = e.currentTarget;
+            const color = current.dataset.color;
+            const parents = current.closest('.list-group');
+            // console.log(parents);
+            parents.style.backgroundColor = color;
+        } );
+    } );
     </script>
     
 </body>

@@ -27,13 +27,22 @@
      </form>
 
      <script type="text/javascript">
+        /*
+        addEventListener('submit',cb);
+        e.preventDefault();
+        (!username.vaue)
+        alert('');
+        .focus();
+        .submit();
+        */
+
         /* 
         form 요소 안에서 type=submit
         이 이벤트가 실행된다고 <form> 자체의 전송기능이 사라지지는 않으므로,
         이벤트 처리 후 전송을 방지하기 위해 코드 적용
         */  
        const myform = document.querySelector('#myform');
-       myform.addEventListener( 'click', e => {
+       myform.addEventListener( 'submit', e => {
             e.preventDefault();
 
             const username = document.querySelector('#username');

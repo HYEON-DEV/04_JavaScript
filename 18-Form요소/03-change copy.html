@@ -24,28 +24,22 @@
     <p id="keycopy"></p>
 
     <script type="text/javascript">
-        //  addEventListener('change',cb);      선택된 상태가 변경되었을 때
-        //  window.open();                      
-        //  addEventListener('keyup',cb);
-
-        document.querySelector('#site').addEventListener( 'change', e => {
+       document.querySelector('#site').addEventListener( 'change', e => {
             const choose = e.currentTarget.selectedIndex;
             const value = e.currentTarget[choose].value;
 
             if (value) {
-                window.open(value);     // 파라미터로 전달된 URL을 새로운 탭으로 여는 함수
+                window.open(value);
             }
-        } );
+       } );
 
-        //  input 요소의 포커스가 빠져 나오면  change 이벤트 동작
-        document.querySelector('#src').addEventListener( 'change', e => {
+       document.querySelector('#src').addEventListener( 'change', e => {
             document.querySelector('#dsc').value = e.currentTarget.value;
-        } );
+       } );
 
-        //  실시간으로 키 입력 감지 -> keyup 이벤트 사용
-        document.querySelector('#keycheck').addEventListener( 'keyup', e => {
+       document.querySelector('#keycheck').addEventListener( 'keyup', e => {
             document.querySelector('#keycopy').innerHTML = e.currentTarget.value;
-        } );
+       } );
     </script>
 </body>
 </html>
