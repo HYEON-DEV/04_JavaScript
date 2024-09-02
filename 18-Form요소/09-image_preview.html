@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #file-input {
+            display: none;
+        }
+        .image-upload label {
+            cursor: pointer;
+        }
+        #preview-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #preview-container .preview {
+            display: block;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 1px solid #555;
+            box-sizing: border-box;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-upload">
+        <label for="file-input">
+            <img src="img/upload.jpg" />
+        </label>
+        <input id="file-input" type="file" multiple />
+    </div>
+
+    <!-- 미리보기 표시할 컨테이너 -->
+     <div id="preview-container"></div>
+
+    <script>
+        document.querySelector('#file-input').addEventListener( 'change', e => {
+            const previewContainer = document.querySelector('#preview-container');
+            previewContainer.innerHTML = '';
+            const files = e.currentTarget.files;    // FileList JSON
+            console.log(files);
+            Array.from(files).forEach( (v,i) => {
+                console.log(v);
+                const imgUrl = URL.createObjectURL(v);
+                //console.log(imgUrl);
+                const imgTag = document.createElement('img');
+                imgTag.classList.add('preview');
+                imgTag.setAttribute('src',imgUrl);
+                previewContainer.appendChild(imgTag);
+            } );
+        } );
+    </script>
+</body>
+</html>
