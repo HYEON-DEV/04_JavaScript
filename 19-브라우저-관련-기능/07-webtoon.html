@@ -32,6 +32,9 @@
         .gnb li:last-child:after{
             content: '';
         }
+        .gnb a.active {
+            border-bottom: 3px solid #22b8cf;
+        }
         .container {
             display: flex;
         }
@@ -51,11 +54,11 @@
     <ul class="gnb">
         <li><a href="07-webtoon.html?weekday=mon" data-weekday="mon"> 월요웹툰 </a></li>
         <li><a href="07-webtoon.html?weekday=tue" data-weekday="tue"> 화요웹툰 </a></li>
-        <li><a href="07-webtoon.html?weekday=wed" data-weekday="mon"> 수요웹툰 </a></li>
-        <li><a href="07-webtoon.html?weekday=thu" data-weekday="mon"> 목요웹툰 </a></li>
-        <li><a href="07-webtoon.html?weekday=fri" data-weekday="mon"> 금요웹툰 </a></li>
-        <li><a href="07-webtoon.html?weekday=sat" data-weekday="mon"> 토요웹툰 </a></li>
-        <li><a href="07-webtoon.html?weekday=sun" data-weekday="mon"> 일요웹툰 </a></li>
+        <li><a href="07-webtoon.html?weekday=wed" data-weekday="wed"> 수요웹툰 </a></li>
+        <li><a href="07-webtoon.html?weekday=thu" data-weekday="thu"> 목요웹툰 </a></li>
+        <li><a href="07-webtoon.html?weekday=fri" data-weekday="fri"> 금요웹툰 </a></li>
+        <li><a href="07-webtoon.html?weekday=sat" data-weekday="sat"> 토요웹툰 </a></li>
+        <li><a href="07-webtoon.html?weekday=sun" data-weekday="sun"> 일요웹툰 </a></li>
     </ul>
 
     <div class="container">
@@ -81,14 +84,21 @@
 
     <script type="text/javascript" src="./data.js"></script>
     <script type="text/javascript">
+    /* 
         console.group('데이터 확인');
         console.log(webtoon);
         console.groupEnd();
+    */
+        const query = new URLSearchParams(location.search); // querystring->객체 변환
+        //console.log(query);
 
-        const query = new URLSearchParams(location.search);
-        console.log(query);
+        //const params = Object.fromEntries(query); // 객체 -> JSON 변환
+        //console.log(params);
 
-        const { weekday } = Object.fromEntries(query);
+        const { weekday } = Object.fromEntries(query);  // 객체 -> JSON 변환
+        //console.log(Object.fromEntries(query));
+        //console.log( weekday );
+        //console.log(webtoon[weekday]); 
 
         document.querySelectorAll('.gnb a').forEach( (v,i) => {
             if (v.dataset.weekday == weekday) {
@@ -98,7 +108,7 @@
             }
         } );
 
-        const container = document.querySelector('container');
+        const container = document.querySelector('.container');
         const currentList = webtoon[weekday];
 
         if ( currentList ) {
@@ -122,11 +132,11 @@
                 point.innerHTML = v.point;
                 item.appendChild(point);
 
-                console.log(item);
+                //console.log(item);
 
                 container.appendChild(item);
             } );
-        }
+        } 
     </script>
 </body>
 </html>
