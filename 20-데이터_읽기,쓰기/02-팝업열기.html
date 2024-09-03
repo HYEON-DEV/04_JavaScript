@@ -19,7 +19,7 @@
             transform: translate(-50%,-50%);
             z-index: 999;
             
-            /* display: none; */
+            display: none;
         }
     </style>
 </head>
@@ -44,14 +44,17 @@
             //console.log(matches);
             // 반환할 값이 있다면 decoding 수행, 없다면 undefined 반환
             return matches ? decodeURIComponent(matches[1]) : undefined;
+            // matches[0] 이름 / matches[1] 값
         };
         
         const setCookie = (name, value, maxAge) => {
             const encName = encodeURIComponent(name);
             const encValue = encodeURIComponent(value);
             let updatedCookie = `${encName}=${encValue}`;
-            updatedCookie += 'path=/;';
-            //updatedCookie += 'domain=.naver.com';  원래는 저장할 도메인 넣어줘야 한다
+            updatedCookie += 'path=/;'; 
+            // 유효경로 설정 path
+            // 일반적으로 '/'만 지정해서 사이트 전역에서 쿠키가 유효하게 설정한다.
+            //updatedCookie += 'domain=.naver.com;';  원래는 저장할 도메인 넣어줘야 한다 *******************************
             if (maxAge != undefined) {
                 updatedCookie += `max-age=${maxAge}`;
             }
@@ -60,6 +63,7 @@
     </script>
 
     <script>
+        // no-popup 이라는 쿠키를 읽어오면 
         if (!getCookie('no-popup')) {
             document.querySelector('.popup').style.display = 'block';
         }

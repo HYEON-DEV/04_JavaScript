@@ -20,6 +20,12 @@
     </div>
 
     <script>
+        /**
+         * window.localStorage.setItem(keyChoose,valueInput);
+         * localStorage.getItem(keyChoose);
+         * localStorage.removeItem(keyChoose);
+         * localStorage.clear();
+         * */
         document.querySelector('#save').addEventListener('click', e=> {
             const key = document.querySelector('#key');
             const keyChoose = key[key.selectedIndex].value;

@@ -18,7 +18,8 @@
             display: flex;
             width: 100%;
             margin: 15px 0;
-            align-items: center;
+            align-items: center;    
+            /* 수직축 방향 정렬  */
         }
 
         .field-title {
@@ -51,7 +52,7 @@
 
         .button-container {
             margin: 20px auto;
-            text-align: center;
+            text-align: center; 
         }
     </style>
 </head>
@@ -130,10 +131,10 @@
                 regexHelper.value('#user_name','이름을 입력하세요');
                 regexHelper.value('#email','이메일을 입력하세요');
                 regexHelper.value('#tel','연락처를 입력하세요');
-            } catch (e) {
+            } catch (e) {   //  StringFormatException의 객체
                 alert(e.message);
                 console.error(e);
-                e.element.value='';
+                e.element.value=''; // element <- selector에 대한 객체 반환 -> 입력값 비우기
                 e.element.focus();
                 return;
             }

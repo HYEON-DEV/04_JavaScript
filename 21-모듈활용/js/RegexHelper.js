@@ -1,19 +1,22 @@
 
 class StringFormatException extends Error {
-    // 입력 요소에 대한 selector 추가
+    // 입력 요소에 대한 selector (추가)
     #selector;
 
+    // 입력요소를 두번째 파라미터로 전달받는다 (수정)
     constructor( msg='잘못된 요청입니다', selector=undefined ){
         super(msg);
         super.name = 'StringFormatException';
-        //  멤버변수에 입력요소를 참조시킨다
+        //  멤버변수에 입력요소를 참조시킨다 (추가)
         this.#selector = selector;
     }
 
+    // 입력요소의 selector에 대한 getter (추가)
     get selector() {
         return this.#selector;
     }
 
+    // 입력요소 selector에 해당하는 HTMLElement 객체 반환
     get element() {
         const el = this.#selector!==null ? document.querySelector(this.#selector) : undefined;
         return el;
