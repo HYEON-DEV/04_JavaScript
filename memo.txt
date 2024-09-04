@@ -1,0 +1,55 @@
+메서드 창 원래 안뜨는지 확인
+
+setup
+
+download
+
+.map 파일 무시
+
+glide.js
+- 소스파일 원본
+- 줄바꿈 ㅇ
+
+glide.min.js
+- 코드는 같은데
+- 주석X
+- 줄바꿈X
+- 용량 최소
+
+줄바꿈, 주석 -> 용량 늘어남
+나중에는 다 제거한 파일을 씀
+프로그램 돌리면 나옴
+나중에 리액트가면 자동으로 이 작업 해줌
+min 붙은걸 프로덕션빌드/압축파일  이라고 부름
+웬만하면 min 붙은거 쓰기
+
+cnd
+
+api
+
+property
+
+event
+
+javascript images slider plugin 구글링
+
+
+
+https://www.chartjs.org/
+
+https://studio-jt.co.kr/tag/%EB%B0%98%EC%9D%91%ED%98%95%EC%9B%B9/
+
+https://michalsnik.github.io/aos/
+
+https://cdnjs.com/libraries/fslightbox
+
+https://cdnjs.com/libraries/aos
+
+https://fslightbox.com/javascript
+
+https://glidejs.com/
+
+https://sweetalert2.github.io/
+
+https://www.chartjs.org/
+

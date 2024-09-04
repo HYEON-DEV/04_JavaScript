@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.13.1/dist/sweetalert2.min.css">
+
+    <style>
+        .title {
+            color: white;
+            font-size: 36px;
+            text-shadow: 0 1px #000;
+        }
+        .content {
+            color: white;
+            font-size: 18px;
+            text-shadow: 0 1px #000;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1" type="button"> button1 </button>
+    <button id="btn2" type="button"> button2 </button>
+    <button id="btn3" type="button"> button3 </button>
+    <button id="btn4" type="button"> button4 </button>
+    <button id="btn5" type="button"> button5 </button>
+    <button id="btn6" type="button"> button6 </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.13.1/dist/sweetalert2.all.min.js"></script>
+
+    <script>
+        document.querySelector('#btn1').addEventListener( 'click', e => {
+            new Swal('안녕하세요');
+        } );
+
+        document.querySelector('#btn2').addEventListener( 'click', e => {
+            new Swal( '탈퇴확인', '정말 탈퇴하시겠습니까?', 'question' );
+            // new Swal( 메시지제목, 내용, 종류 );
+            // 종류 --> success, warning, info, question, error
+        } );
+        
+        document.querySelector('#btn3').addEventListener( 'click', e => {
+            new Swal({
+                title: '<font color="red">에러<font>',
+                html: '요청하신 처리에 실패했습니다. <br /> 관리자에게 문의 바랍니다.',
+                icon: 'error',
+                showCloseButton: true,
+                confirmButtonText: '확인',
+                confirmButtonColor: '#a00',
+                showCancelButton: true,
+                cancelButtonText: '취소',
+                cancelButtonColor: '#f60'
+            });
+        } );
+
+        document.querySelector('#btn4').addEventListener( 'click', e => {
+            new Swal({
+                title: '확인',
+                text: '정말 선택하신 항목을 삭제하시겠습니까?',
+                icon: 'warning',
+                confirmButtonText: 'Yes',
+                showCancelButton: true,
+                cancelButtonText: 'No'
+            }).then( result => {
+                console.log(result);
+                if(result.value) {
+                    new Swal('삭제', '성공적으로 삭제되었습니다.', 'success');
+                } else if (result.dismiss === 'cancel') {
+                    new Swal('취소', '삭제가 취소되었습니다.', 'error');
+                }
+            } );
+        } );
+
+        document.querySelector('#btn5').addEventListener( 'click', e => {
+            new Swal({
+                title: 'Thank you!',
+                text: '성원에 감사드립니다.',
+                imageUrl: 'assets/img/img5.png',
+                imageWidth: 480,
+                imageHeight: 240
+            });
+        } );
+
+        document.querySelector('#btn6').addEventListener( 'click', e => {
+            new Swal({
+                title: '<span class="title"> Thank you </span>',
+                html: '<span class="content"> 성원에 감사드립니다 </span>',
+                width: 600,
+                padding: '100px',
+                background: '#fff url(assets/img/img5.png) center center/cover no-repeat'
+            });
+        } );
+    </script>
+</body>
+</html>

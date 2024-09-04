@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/pageable@latest/dist/pageable.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+               
+        .pg-wrapper{
+            box-sizing: content-box;
+        } 
+        
+        .page {
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%; 
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page h1 {
+            color: #fff;
+            font-size: 64px;
+        }
+        .page1 { background-color: #3f51b5; }
+        .page2 { background-color: #673ab7; }
+        .page3 { background-color: #9c27b0; }
+        .page4 { background-color: #e91e63; }
+        .page5 { background-color: #f44336; }
+
+        .video-background {
+            background-color: #06f2;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-background .video-overray {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            color: #fff;
+            text-shadow: 0 1px #000;
+        }
+        .video-background .video-overray h1 {
+            margin: 0;
+            padding-bottom: 20px;
+        }
+        .video-background .video-overray p {
+            border-top: 1px solid #fff;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div data-anchor="Page 1">
+            <div class="page page1 video-background">
+                <video src="assets/media/intro.mp4" autoplay muted loop></video>>
+                <div class="video-overray">
+                    <h1 data-aos="fade-up" data-aos-duration="500"> Hyeon </h1>
+                    <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="300"> Hyeon hyeon hyeoN  </p>
+                </div>
+            </div>
+        </div>
+        
+        <div data-anchor="Page 2">
+            <div class="page page2">
+                <h1> Page2 </h1>
+            </div>
+        </div>
+        
+        <div data-anchor="Page 3">
+            <div class="page page3">
+                <h1> Page3 </h1>
+            </div>
+        </div>
+        
+        <div data-anchor="Page 4">
+            <div class="page page4">
+                <h1> Page4 </h1>
+            </div>
+        </div>
+
+        <div data-anchor="Page 5">
+            <div class="page page5">
+                <h1> Page5 </h1>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="https://unpkg.com/pageable@latest/dist/pageable.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // pageable 가동
+        new Pageable(".container");
+        // AOS 라이브러리 동작 시작
+        AOS.init();
+
+
+        //  https://github.com/Mobius1/Pageable?tab=readme-ov-file
+    </script>
+</body>
+</html>
