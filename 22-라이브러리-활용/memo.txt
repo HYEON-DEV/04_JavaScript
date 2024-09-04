@@ -1,0 +1,30 @@
+메서드 창 원래 안뜨는지 확인
+
+aos
+animate on scroll library
+https://michalsnik.github.io/aos/
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+fullpage.js
+요즘은 유료화
+
+pageable
+https://github.com/Mobius1/Pageable
+
+lightbox
+https://lokeshdhakar.com/projects/lightbox2/
+fslightbox
+https://fslightbox.com/
+
+glide.js
+https://glidejs.com/
+
+javascript image slider plugin  구글링
+
+slick  
+
+
+
+https://www.chartjs.org/
+
+https://studio-jt.co.kr/tag/%EB%B0%98%EC%9D%91%ED%98%95%EC%9B%B9/

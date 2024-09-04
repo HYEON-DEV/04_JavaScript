@@ -17,6 +17,10 @@
                
         .pg-wrapper{
             box-sizing: content-box;
+            /* 
+            content-box : border,padding이 width,height 영역 밖에 설정된다
+            border-box : border,padding이 width,height 영역 안에 설정된다  
+            */
         } 
         
         .page {
@@ -45,11 +49,13 @@
             width: 100%;
             height: 100%;
         }
+        
         .video-background video {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
         .video-background .video-overray {
             position: absolute;
             left: 0;
@@ -57,7 +63,7 @@
             z-index: 100;
             width: 100%;
             height: 100%;
-
+            
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -66,14 +72,16 @@
             color: #fff;
             text-shadow: 0 1px #000;
         }
+         
         .video-background .video-overray h1 {
             margin: 0;
-            padding-bottom: 20px;
         }
+        
         .video-background .video-overray p {
             border-top: 1px solid #fff;
-            margin: 0;
+            margin-top: 15px;
         }
+        
     </style>
 </head>
 <body>
@@ -81,7 +89,7 @@
     <div class="container">
         <div data-anchor="Page 1">
             <div class="page page1 video-background">
-                <video src="assets/media/intro.mp4" autoplay muted loop></video>>
+                <video src="assets/media/intro.mp4" autoplay muted loop></video>
                 <div class="video-overray">
                     <h1 data-aos="fade-up" data-aos-duration="500"> Hyeon </h1>
                     <p data-aos="fade-up" data-aos-duration="500" data-aos-delay="300"> Hyeon hyeon hyeoN  </p>
@@ -122,9 +130,6 @@
         new Pageable(".container");
         // AOS 라이브러리 동작 시작
         AOS.init();
-
-
-        //  https://github.com/Mobius1/Pageable?tab=readme-ov-file
     </script>
 </body>
 </html>
