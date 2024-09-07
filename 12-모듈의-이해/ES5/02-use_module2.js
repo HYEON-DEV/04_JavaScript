@@ -9,5 +9,5 @@ my.say();
 
 console.log(my.home.postcode);
 console.log(my.home.address);
-my.home.getAddress;
+my.home.getAddress();
 

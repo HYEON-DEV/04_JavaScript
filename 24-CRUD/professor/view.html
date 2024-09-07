@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- header -->
+        <header>
+            <h1> 교수 </h1>
+            <hr />
+        </header>
+
+        <!-- body -->
+        <section>
+           <dl>
+                <dt> 이름 </dt>
+                <dd class="name"> </dd>
+                <dt> 닉네임 </dt>
+                <dd class="userid"> </dd>
+                <dt> 급여 </dt>
+                <dd class="sal"> </dd>
+                <dt> 고용일 </dt>
+                <dd class="hiredate"> </dd>
+                <dt> 위치 </dt>
+                <dd class="loc"> </dd>
+           </dl> 
+           <a href="index.html"> 목록보기 </a> | <a href="#" class="btn-edit"> 수정하기 </a> | <a href="#" class="btn-delete"> 삭제하기 </a>
+        </section>
+
+        <!-- footer -->
+        <footer>
+            <hr />
+            <address> copyright&copy;2024. megastudy </address>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/js/UtilHelper.js"></script>
+
+    <script>
+        //  querystring -> id값,  id 존재여부
+        //  Read - .get -> 데이터 innerhtml
+        //  목록 -> href 
+        //  수정 -> href
+        //  삭제 -> dataset 구성 / 클릭이벤트, Delete  .delete,  remove() / index.html 이동
+    </script>
+</body>
+</html>

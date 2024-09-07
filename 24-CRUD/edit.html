@@ -6,38 +6,36 @@
     <title> 학과관리 ::: MySchool </title>
 
     <link rel="stylesheet" href="assets/css/style.css" />
-
 </head>
-
 <body>
     <div class="container">
-        
         <!-- header -->
         <header>
-            <h1> 학과관리 </h1>            
+            <h1> 학과관리 </h1>
             <hr />
         </header>
 
         <!-- body -->
         <section>
             <form name="form" id="department-form">
+                <input type="hidden" name="id" id="id" />
+
                 <div class="form-group">
-                    <label for="dname"> 학과이름 <span class="text-danger"> * </span> </label>
+                    <label for="dname"> 학과이름 <span class="text-danger">*</span> </label>
                     <div>
                         <input type="text" name="dname" id="dname" />
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="loc"> 학과위치 </label>
                     <div>
                         <input type="text" name="loc" id="loc" />
                     </div>
                 </div>
-
                 <hr />
-
                 <div class="text-center">
-                    <button type="submit"> 저장하기 </button>
+                    <button type="submit"> 수정하기 </button>
                     <button type="reset"> 다시작성 </button>
                 </div>
             </form>
@@ -48,45 +46,69 @@
             <hr />
             <address> copyright&copy;2024. megastudy </address>
         </footer>
-
-    </div>    
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="assets/js/UtilHelper.js"></script>
 
-    <!--
-    * 입력값 -> submit
-    * 데이터 처리 "Create"  await axios.post( url, { key:value, key:value } );
-    * 상세페이지로 이동  window.location = url;
-    -->
+    /*
+    * querystring -> id 가져오기
+    * 가져온 id의 학과,위치 <input>에 넣기
+    * 수정 버튼 submit 이벤트
+    * Update  ->  await axios.put( url, { , , } );
+    * 상세 페이지로 이동  window.location = url;
+    */
+
+    //  history.back();
 
     <script>
+
+        //  페이지가 실행되면서 자동으로 동작 -> 즉시실행함수
+        ( async () => {
+            const params = utilHelper.getQuery();
+
+            if ( !params ) {
+                alert('학과번호가 없습니다');
+                history.back();
+                return;
+            }
+
+            let response = null;
+            //  기존에 저장돼있는 내용을 <form>안에 셋팅 <- AJAX로 데이터 가져오기 
+            try {
+                response = await axios.get( `http://localhost:3001/department/${params.id}` );
+            } catch (e) {
+                console.error(e);
+                alert('요청을 처리하는데 실패했습니다');
+                return;
+            }
+            //  가져온 데이터 <input> 의 value속성에 넣기
+            //  일련번호와 같이 시스템이 관리하는 값은 "hidden" 요소로 포함시킨다
+            document.querySelector('#id').value = response.data.id;
+            document.querySelector('#dname').value = response.data.dname;
+            document.querySelector('#loc').value = response.data.loc;
+        } )();
+
         document.querySelector('#department-form').addEventListener( 'submit', async e => {
             e.preventDefault();
 
-            //  입력값 받아오기
+            const id = document.querySelector('#id').value;
             const dname = document.querySelector('#dname').value;
             const loc = document.querySelector('#loc').value;
 
-            let response = null;
             try {
-                /*  대부분 백엔드가 일련번호는 자체적으로 생성하기 때문에 create에 해당하는 데이터 추가 처리에서는 백엔드에게 일련번호를 제외한 변수만 전달한다   */
-                response = await axios.post( `http://localhost:3001/department/`, {
+                await axios.put( `http://localhost:3001/department/${id}`, {
                     dname: dname,
                     loc: loc
                 } );
-                console.log( response.data );
             } catch (e) {
                 console.error(e);
                 alert('요청을 처리하는데 실패했습니다');
                 return;
             }
 
-            //  백엔드에서 데이터 저장에 대한 응답으로 보낸 JSON에는 생성된 신규항목에 대한 일련번호가 포함되어 있다
-            //  이 값을 활용해 상세페이지로 이동해야 한다
-            window.location = `view.html?id=${response.data.id}`;
+            window.location = `view.html?id=${id}`;
         } );
     </script>
 </body>
-
 </html>
