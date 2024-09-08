@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+    <div class="container">
+        <!-- header -->
+        <header>
+            <h1> 교수 </h1>
+            <hr />
+        </header>
+
+        <!-- body -->
+        <section>
+            <form name="form" id="professor-form">
+                <div class="form-group">
+                    <label for="name"> 이름 </label>
+                    <div>
+                        <input type="text" name="name" id="name"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="userid"> 닉네임 </label>
+                    <div>
+                        <input type="text" name="userid" id="userid"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sal"> 급여 </label>
+                    <div>
+                        <input type="text" name="sal" id="sal"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hiredate"> 고용일 </label>
+                    <div>
+                        <input type="date" name="hiredate" id="hiredate"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="deptno"> 위치 </label>
+                    <div>
+                        <input type="text" name="deptno" id="deptno"/>
+                    </div>
+                </div>
+                <hr />
+                <div class="text-center">
+                    <button type="submit"> 저장하기 </button>
+                    <button type="reset"> 다시작성 </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- footer -->
+        <footer>
+            <hr />
+            <address> copyright&copy;2024. megastudy </address>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/js/UtilHelper.js"></script>
+    <script src="assets/js/RegexHelper.js"></script>
+
+    <script>
+        //  form-submit 이벤트 ->
+        //  input값 가져오기
+        //  input값의 유효성검사
+        //  백엔드에 전송 Create  .post  <- input값 넣기
+        //  view.html 로 이동
+        
+        document.querySelector('#professor-form').addEventListener( 'submit', async e => {
+            e.preventDefault();
+            /* 
+            const name = document.querySelector('#name').value;
+            const userid = document.querySelector('#userid').value;
+            const sal = document.querySelector('#sal').value;
+            const hiredate = document.querySelector('#hiredate').value;
+            const deptno = document.querySelector('#deptno').value;
+            */
+            try {
+                regexHelper.value( '#name', '이름을 입력하세요' );
+
+                regexHelper.value( '#userid', '닉네임을 입력하세요' );
+
+                regexHelper.value( '#sal', '급여를 입력하세요' );
+                regexHelper.num( '#sal', '숫자만 입력 가능합니다' );
+                
+                //regexHelper.value( '#hiredate', '날짜를 선택해주세요' );
+
+                regexHelper.value( '#deptno', '위치를 입력하세요' );
+                regexHelper.num( '#deptno', '숫자만 입력 가능합니다' );
+            } catch (e) {
+                console.error(e);
+                alert('입력 오류');
+                e.element.value='';
+                e.element.focus();
+                return;
+            }
+
+            let response = null;
+
+            try {
+                response = await axios.post( 'http://localhost:3001/professor/', {
+                    name: document.querySelector('#name').value,
+                    userid: document.querySelector('#userid').value,
+                    sal: document.querySelector('#sal').value,
+                    hiredate: document.querySelector('#hiredate').value,
+                    deptno: document.querySelector('#deptno').value,
+                } );
+            } catch (e) {
+                console.error(e);
+                alert('요청 실패');
+                return;
+            }
+
+            window.location = `view.html?id=${response.data.id}`;
+        } );
+    </script>
+</body>
+</html>

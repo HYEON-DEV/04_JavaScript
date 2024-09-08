@@ -28,7 +28,7 @@
                 <dt> 고용일 </dt>
                 <dd class="hiredate"> </dd>
                 <dt> 위치 </dt>
-                <dd class="loc"> </dd>
+                <dd class="deptno"> </dd>
            </dl> 
            <a href="index.html"> 목록보기 </a> | <a href="#" class="btn-edit"> 수정하기 </a> | <a href="#" class="btn-delete"> 삭제하기 </a>
         </section>
@@ -46,9 +46,59 @@
     <script>
         //  querystring -> id값,  id 존재여부
         //  Read - .get -> 데이터 innerhtml
-        //  목록 -> href 
         //  수정 -> href
-        //  삭제 -> dataset 구성 / 클릭이벤트, Delete  .delete,  remove() / index.html 이동
+        //  삭제 -> dataset 구성 / 클릭이벤트, Delete  .delete / index.html 이동
+
+        ( async() => {
+            const params = utilHelper.getQuery();
+
+            if ( !params.id ) {
+                alert('학과번호가 없습니다');
+                history.back();
+                return;
+            }
+
+            let response = null;
+
+            try {
+                response = await axios.get( `http://localhost:3001/professor/${params.id}` );
+            } catch (e) {
+                console.error(e);
+                alert('요청 실패');
+                return;
+            }
+
+            document.querySelector('.name').innerHTML = response.data.name;
+            document.querySelector('.userid').innerHTML = response.data.userid;
+            document.querySelector('.sal').innerHTML = response.data.sal;
+            document.querySelector('.hiredate').innerHTML = response.data.hiredate.substring(0,10);
+            document.querySelector('.deptno').innerHTML = response.data.deptno;
+
+            document.querySelector('.btn-edit').setAttribute( 'href', `edit.html?id=${response.data.id}` );
+
+            const btnDelete = document.querySelector('.btn-delete');
+            btnDelete.dataset.id = response.data.id;
+            btnDelete.dataset.name = response.data.name;
+        } )();
+
+        document.querySelector('.btn-delete').addEventListener( 'click', async e => {
+            e.preventDefault();
+
+            const current = e.currentTarget;
+            const id = current.dataset.id;
+            const name = current.dataset.name;
+
+            if ( confirm( `정말 ${name}을(를) 삭제하시겠습니까?` ) ) {
+                try { 
+                    await axios.delete( `http://localhost:3001/professor/${id}` );
+                } catch (e) {
+                    console.error(e);
+                    alert('요청 실패');
+                    return;
+                }
+                window.location = 'index.html';
+            }
+        } );
     </script>
 </body>
 </html>

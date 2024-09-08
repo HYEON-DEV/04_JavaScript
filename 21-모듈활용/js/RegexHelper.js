@@ -156,7 +156,7 @@ class RegexHelper {
     selector( selector, msg, regexExpr ) {
         this.value( selector, msg );
 
-        // 입력값에 대한 정규쵸현식 검사가 실패라면?
+        // 입력값에 대한 정규표현식 검사가 실패라면?
         if ( !regexExpr.test( document.querySelector(selector).value.trim() ) ) {
             throw new StringFormatException( msg, selector );
         }

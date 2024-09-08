@@ -69,6 +69,37 @@ body {
 
         dd {
             font-weight: normal;
+            margin-bottom: 20px;
+            border-left: 5px #d5d5d5 solid;
+            padding-left: 15px;
+            font-size: 14px;
+        }
+        
+        /* add.html */
+        .form-group {
+            margin: 10px 0;
+            padding: 0 20px;
+            display: flex;
+
+            label {
+                width: 100px;
+                font-size: 14px;
+                height: 30px;
+                line-height: 30px;
+            }
+
+            input{
+                width: 200px;
+            }
+
+            div {
+                height: 30px;
+                line-height: 30px;
+            }
+        }
+        .text-center {
+            text-align: center;
+            margin-bottom: -5px;
         }
     }
 }

@@ -81,16 +81,6 @@
       "deptno": 101
     },
     {
-      "id": 9904,
-      "name": "염일웅",
-      "userid": "blue77",
-      "position": "전임강사",
-      "sal": 240,
-      "hiredate": "1998-10-10T15:00:00.000Z",
-      "comm": null,
-      "deptno": 102
-    },
-    {
       "id": 9905,
       "name": "권혁일",
       "userid": "refresh",
@@ -119,6 +109,22 @@
       "hiredate": "1990-10-17T15:00:00.000Z",
       "comm": 17,
       "deptno": 202
+    },
+    {
+      "name": "김범석",
+      "userid": "Beom",
+      "sal": "500",
+      "hiredate": "2024-09-02",
+      "deptno": "405",
+      "id": 9909
+    },
+    {
+      "name": "김범",
+      "userid": "beom",
+      "sal": "400",
+      "hiredate": "",
+      "deptno": "202",
+      "id": 9910
     }
   ],
   "student": [
