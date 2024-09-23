@@ -1,0 +1,31 @@
+< 영화진흥위원회 >
+https://www.kobis.or.kr/kobisopenapi/homepg/main/main.do
+
+key
+0020fe39e18a044b567bf2ceb1b1af63
+
+http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=0020fe39e18a044b567bf2ceb1b1af63&targetDt=20240904
+
+
+< 주소기반산업지원서비스 >
+https://business.juso.go.kr/addrlink/main.do?cPath=99MM
+
+도로명주소 검색 API  key  (~1204)
+devU01TX0FVVEgyMDI0MDkwNTE2NDY1MTExNTA2NTI=
+
+https://business.juso.go.kr/addrlink/addrLinkApi.do?confmKey=devU01TX0FVVEgyMDI0MDkwNTE2NDY1MTExNTA2NTI=&currentPage=1&countPerPage=50&keyword=연희동&resultType=json
+
+
+----------------
+
+open api 리스트    구글링
+
+공공데이터포털
+https://www.data.go.kr/index.do
+
+서울열린데이터광장
+https://data.seoul.go.kr/
+
+서울시상권분석서비스
+https://golmok.seoul.go.kr/main.do
+

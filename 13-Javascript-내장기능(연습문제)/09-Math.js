@@ -39,3 +39,54 @@ for ( var i=0; i<10; i++ ) {
 }
 console.log(`인증번호 : ${auth}`);
 
+
+
+
+function random(n1,n2) {
+    return parseInt( Math.random() * (n2-n1+1) + n1 );
+}
+
+let n;
+while (true) {
+    n = random(1,5);
+    console.log(n);
+
+    if(n==1) {
+        console.log('n=1')
+        continue;
+    } else {
+        console.log('n!=1');
+        break;
+    }
+}    
+console.log(`==>${n}`);
+
+const numbers = [];
+for ( let i=1; i<10; i++ ) {
+    numbers.push(i);
+}
+console.log(numbers);
+
+for ( let i=numbers.length-1; i>0; i-- ) {
+    const j = Math.floor(Math.random()*(i+1));
+    [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+}
+
+console.log(numbers.slice(0,5));
+
+
+
+
+const numbers = [];
+for (let i = min; i <= max; i++) {
+    numbers.push(i);
+}
+
+// Step 2: Shuffle the array using the Fisher-Yates algorithm
+for (let i = numbers.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [numbers[i], numbers[j]] = [numbers[j], numbers[i]]; // Swap elements
+}
+
+// Step 3: Return the first 'size' elements of the shuffled array
+return numbers.slice(0, size);
